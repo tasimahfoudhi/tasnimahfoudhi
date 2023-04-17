@@ -1,0 +1,52 @@
+    import java.util.Scanner;//importing the scanner class
+import java.util.ArrayList;//importing the ArrayList class
+import java.util.Arrays;
+public class Select{
+public static void main(String[] args){
+    int K= Integer.parseInt(args[0]); // to read k
+    Scanner input = new Scanner(System.in); // to read from the keyboard
+    ArrayList<Integer>list =new ArrayList<Integer>();//Create an ArrayList of integers
+    while (input.hasNextLine()) {
+        try{
+            int value= Integer.parseInt(input.nextLine());//to check everytime if the input is integer 
+            //if it is it will be added to the ArrayList
+            list.add(value);  // add values to the ArrayList
+        }    
+        catch
+            //if the input is not an integer, it will not be added to the ArrayList
+            //and it will read the renentered input
+            (NumberFormatException e){
+                System.err.println("Invalid integer, please re-enter.");
+            }
+        }  
+        
+        int[] array = new int[list.size()];   //defining an Array of Integers to contain all the elements of the ArrayList
+        for (int i = 0; i < list.size(); i++) {
+            array[i] = list.get(i); //each element of the ArrayList is added to the Array
+          }  
+         for (int j=0;j<array.length;j++)
+         {
+            System.out.print(array[j]+" "); // to display each element to the Array
+        }
+        //ende Aufb
+        
+        //Aufc
+       
+       System.out.println("");
+       
+       if (K>list.size()){
+           System.out.println("The list must contain at least k="+K+" numbers, but only "+list.size()+"were provided." );
+       }
+       else if(K<=0){
+           System.out.println("ONLY positive Integers !!!");
+        }
+       else 
+       {
+        Arrays.sort(array); //to sort our array that we got from Aufb 
+  
+        System.out.println("The k="+K+" smallest value is" +array[K-1] );
+    }
+    }
+}
+
+
